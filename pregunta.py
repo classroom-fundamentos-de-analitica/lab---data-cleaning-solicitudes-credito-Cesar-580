@@ -7,8 +7,6 @@ correctamente. Tenga en cuenta datos faltantes y duplicados.
 
 """
 import pandas as pd
-import re
-from datetime import datetime
 
 
 def clean_data():
@@ -32,7 +30,6 @@ def clean_data():
     df["barrio"] = df["barrio"].str.lower()
     df["barrio"] = df["barrio"].str.replace("_", " ")
     df["barrio"] = df["barrio"].str.replace("-", " ")
-    df["barrio"] = df["barrio"].str.strip()
 
     # Convert the "estrato" and "comuna_ciudadano" column to int
     df["estrato"] = df["estrato"].astype(int)
@@ -53,7 +50,7 @@ def clean_data():
     df['línea_credito'] = df.línea_credito.str.replace('-', ' ')
 
     df.drop_duplicates(inplace=True)
-    
+
     #
     # Inserte su código aquí
     #
